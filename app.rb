@@ -8,6 +8,7 @@ require('pg')
 DB = PG.connect(dbname: 'to_do')
 # connetced it to the database
 get('/') do
+  @lists = List.all
   erb(:index)
 end
 
