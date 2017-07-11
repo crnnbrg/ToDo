@@ -44,10 +44,15 @@ class List
     end
     list_tasks
   end
-  
+
   define_method(:update) do |attributes|
     @name = attributes.fetch(:name)
     @id = id
     DB.exec("UPDATE lists SET name = '#{@name}' WHERE id = #{@id};")
+  end
+
+  define_method(:delete) do
+    DB.exec("DELETE FROM lists WHERE id = #{id};")
+    DB.exec("DELETE FROM tasks WHERE list_id = #{id};")
   end
 end
