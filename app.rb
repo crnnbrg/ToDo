@@ -19,7 +19,7 @@ post('/lists') do
   name = params.fetch('name')
   list = List.new(name: name, id: nil)
   list.save
-  erb(:list_success)
+  erb(:success)
 end
 # fetches the name from the input
 # the id is set to nil so as to let the db do the id assigning
