@@ -30,6 +30,16 @@ describe(List) do
     end
   end
 
+  describe('.find') do
+    it('returns a list by its ID') do
+      test_list = List.new(name: 'Moringaschool stuff', id: nil)
+      test_list.save
+      test_list2 = List.new(name: 'Home stuff', id: nil)
+      test_list2.save
+      expect(List.find(test_list2.id)).to(eq(test_list2))
+    end
+  end
+
   describe('#==') do
     it('is the same list if it has the same name') do
       list1 = List.new(name: 'moringaschool stuff', id: nil)
