@@ -1,6 +1,7 @@
 <h1>Your Current Lists</h1>
 
   <% if @lists.any?() %>
+<!-- This part will only be rendered if any lists are included -->
     <h3>Here are your lists:</h3>
 
     <ul>
@@ -10,7 +11,7 @@
     </ul>
 
   <% else %>
-
+<!-- if no lists are included, this text will show -->
       <p>There are no lists yet!</p>
 
   <% end %>
