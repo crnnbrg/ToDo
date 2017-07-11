@@ -15,7 +15,7 @@ end
 
 describe('viewing all of the lists', type: :feature) do
   it('allows a user to see all of the lists that have been created') do
-    list = List.new(name: 'Moringaschool Homework')
+    list = List.new(name: 'Moringaschool Homework', id: nil)
     list.save
     visit('/')
     click_link('View All Lists')
