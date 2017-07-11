@@ -1,6 +1,5 @@
 require('spec_helper')
 
-
 describe(List) do
   describe('.all') do
     it('starts off with no lists') do
@@ -19,7 +18,7 @@ describe(List) do
     it('sets its ID when you save it') do
       list = List.new(name: 'moringaschool stuff', id: nil)
       list.save
-      expect(list.id).to(be_an_instance_of(Fixnum))
+      expect(list.id).to(be_an_instance_of(Integer))
     end
   end
 
