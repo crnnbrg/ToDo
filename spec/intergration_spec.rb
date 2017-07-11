@@ -37,9 +37,9 @@ describe('adding tasks to a list', type: :feature) do
   it('allows a user to add a task to a list') do
     test_list = List.new(name: 'School stuff', id: nil)
     test_list.save
-    visit("/")
+    visit('/')
     fill_in('Description', with: 'Learn SQL')
-    select(test_list.name,  from: 'list_id')
+    select(test_list.name, from: 'list_id')
     click_button('Add task')
     expect(page).to have_content('Success')
   end
