@@ -23,3 +23,8 @@ post('/lists') do
 end
 # fetches the name from the input
 # the id is set to nil so as to let the db do the id assigning
+
+get('/lists') do
+  @lists = List.all
+  erb(:lists)
+end
