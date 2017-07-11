@@ -44,3 +44,22 @@ post('/tasks') do
   @task.save
   erb(:success)
 end
+
+get('/lists/:id/edit') do
+  @list = List.find(params.fetch('id').to_i)
+  erb(:list_edit)
+end
+
+patch('/lists/:id') do
+  name = params.fetch('name')
+  @list = List.find(params.fetch('id').to_i)
+  @list.update(name: name)
+  erb(:list)
+end
+
+delete('/lists/:id') do
+  @list = List.find(params.fetch('id').to_i)
+  @list.delete
+  @lists = List.all
+  erb(:index)
+end
