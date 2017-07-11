@@ -22,6 +22,14 @@ class List
     @id = result.first.fetch('id').to_i
   end
 
+  define_singleton_method(:find) do |id|
+    found_list = nil
+    List.all.each do |list|
+      found_list = list if list.id.==(id)
+    end
+    found_list
+  end
+
   define_method(:==) do |another_list|
     name.==(another_list.name).&(id.==(another_list.id))
   end
