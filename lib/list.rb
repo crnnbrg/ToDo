@@ -33,4 +33,15 @@ class List
   define_method(:==) do |another_list|
     name.==(another_list.name).&(id.==(another_list.id))
   end
+
+  define_method(:tasks) do
+    list_tasks = []
+    tasks = DB.exec("SELECT * FROM tasks WHERE list_id = #{id};")
+    tasks.each do |task|
+      description = task.fetch('description')
+      list_id = task.fetch('list_id').to_i
+      list_tasks.push(Task.new(description: description, list_id: list_id))
+    end
+    list_tasks
   end
+end
